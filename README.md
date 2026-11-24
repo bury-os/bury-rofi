@@ -30,6 +30,17 @@ Add the input to your `flake.nix`:
 }
 ```
 
+Import the bury-rofi NixOS module in your NixOS config. This handles environment wide settings such as setting the correct `BURYOS_` environment variables (important for BuryOS to know which launcher to use).
+
+```nix
+# configuration.nix
+{
+  imports = [
+    inputs.bury-rofi.nixosModules.default
+  ];
+}
+```
+
 Import the `bury-rofi` Home Manager module in your Home Manager config. This handles all the `~/.config/rofi` files setting up Rofi with the custom configs.
 
 ```nix

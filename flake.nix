@@ -10,6 +10,13 @@
     nixpkgs,
     ... }: {
 
+    nixosModules.default = { pkgs, ... }: {
+      environment.sessionVariables = rec {
+        BURYOS_LAUNCH_APP = "rofi -show drun";
+        BURYOS_LAUNCH_TASK = "rofi -show window";
+      };
+    };
+
     # Home-manager support (HOME configs)
     homeManagerModules.default = { pkgs, ... }: {
       # Bind the configuration files
